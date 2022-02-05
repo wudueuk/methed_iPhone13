@@ -1,0 +1,67 @@
+@media (min-resolution: 2dppx) {
+  .offer__container {
+    background-image: url('../images/phones2x.jpg');
+  }
+}
+
+@media (max-width: 800px) {
+  .header__container {
+    align-items: flex-start;
+  }
+  
+  .nav {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .nav__list {
+    display: block;
+  }
+
+  .nav__item {
+    justify-content: flex-end;
+  }
+
+  .nav__item:not(:last-child)::after {
+    display: none;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
+
+  .offer__container {
+    min-height: 720px;
+    background-image: url('../images/phones_800.jpg');
+    background-size: 800px;
+  }
+
+  @media (min-resolution: 2dppx) {
+    .offer__container {
+      background-image: url('../images/phones_800_2x.jpg');
+    }
+  }
+
+  .offer__subtitle {
+    font-size: 26px;
+  }
+
+  .offer__title,
+  .offer__price {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .offer__container {
+    background-image: url('../images/phones_440.jpg');
+    background-size: 400px;
+  }
+  
+  @media (min-resolution: 2dppx) {
+    .offer__container {
+      background-image: url('../images/phones_440_2x.jpg');
+    }
+  }
+}
+
