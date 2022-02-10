@@ -146,3 +146,248 @@ iframe {
   margin-bottom: 32px;
 }
 
+.features__title {
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.features__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 30px;
+}
+
+.features__item {
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card__picture {
+  box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.06);
+  border-radius: 34px;
+  margin-bottom: 35px;
+}
+
+.card__title {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.card__description {
+  font-size: 22px;
+  line-height: 26px;
+  max-width: 300px;
+}
+
+.order__title {
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 30px;
+  margin-bottom: 90px;
+}
+
+.form__box {
+  width: 630px;
+  border: 1px solid #c9c9c9;
+  border-radius: 34px;
+  padding: 70px 80px 100px;
+}
+
+.form__box-title {
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 40px;
+  text-align: center;
+  color: #c9c9c9;
+}
+
+.form__label {
+  display: block;
+  font-weight: 300;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  height: 90px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  padding: 0px 15px;
+}
+
+.form__input:last-child {
+  margin-bottom: 0;
+}
+
+.form__submit {
+  display: block;
+  margin: 0px auto;
+}
+
+.form__submit:hover {
+  box-shadow: 0px 2px 20px rgba(222, 0, 0, 0.3);
+}
+
+.checkbox {
+  position: relative;
+  display: block;
+  font-weight: 400;
+  margin-bottom: 26px;
+  line-height: 40px;
+  padding-left: 70px;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  left: 0;
+}
+
+.checkbox__input::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkbox__input::after {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 12px;
+  left: 11px;
+  width: 20px;
+  height: 10px;
+  border-bottom: 3px solid #000;
+  border-left: 3px solid #000;
+  transform: rotate(-45deg);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox__input:checked:after {
+  opacity: 1;
+}
+
+.form__input:hover,
+.choices:hover,
+.checkbox__input:focus:before,
+.checkbox__input:hover:not(:disabled):before {
+  box-shadow: 0px 0px 10px rgba(0, 113, 227, 0.45);
+}
+
+.footer {
+  background-color: #c9c9c9;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 30px;
+}
+
+.footer__container {
+  padding: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__link {
+  display: block;
+  margin-top: 13px;
+  text-align: right;
+}
+
+
+/* стилизация select*/
+
+.choices {
+  height: 90px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.choices__inner {
+  height: 100%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.is-open .choices__inner {
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  z-index: 1;
+}
+
+.is-open .choices__list--dropdown {
+  border-top: 0px;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.choices[data-type*=select-one]:after {
+  height: 9px;
+  width: 9px;
+  border-color: transparent transparent #000000 #000000;
+  border-width: 9px;
+  margin-top: -15px; 
+  margin-right: 35px;  
+  transform: rotate(-45deg);
+  z-index: 1;
+  transition: border-color 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+}
+
+.choices[data-type*=select-one].is-open:after {
+  border-color: #000000 #000000 transparent transparent;
+}
+
+
+.choices__list--dropdown .choices__item {
+  font-size: 16px;
+  padding: 20px 15px;
+}
+
+.choices__list--dropdown {
+  margin-top: -5px;
+  z-index: 10;
+}

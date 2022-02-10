@@ -5,11 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/apple.svg" type="image/x-icon">
+  <link rel="preload" href="fonts/SFUIText-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SFUIText-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SFUIText-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/choices.min.css">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/media.css">
   <title>Document</title>
+  <script src="js/choices.min.js" defer></script>
+  <script src="js/jquery.min.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -53,37 +61,63 @@
 
         <ul class="features__list">
           <li class="features__item">
-            <img src="images/camera.jpg" alt="Новый модуль камер" class="card__picture">
+            <picture>
+              <source type="image/avif" srcset="images/camera.avif 1x, images/camera_2x.avif 2x">
+              <source type="image/webp" srcset="images/camera.webp 1x, images/camera_2x.webp 2x">
+              <img src="images/camera.jpg" srcset="images/camera_2x.jpg 2x" alt="Новый модуль камер"
+                class="card__picture">
+            </picture>
             <h3 class="card__title">Камера</h3>
             <p class="card__description">Система камер PRO</p>
           </li>
 
           <li class="features__item">
-            <img src="images/compect.jpg" alt="Комплектация" class="card__picture">
+            <picture>
+              <source type="image/avif" srcset="images/compect.avif 1x, images/compect_2x.avif 2x">
+              <source type="image/webp" srcset="images/compect.webp 1x, images/compect_2x.webp 2x">
+              <img src="images/compect.jpg" srcset="images/compect_2x.jpg 2x" alt="Комплектация" class="card__picture">
+            </picture>
             <h3 class="card__title">Комплектация</h3>
             <p class="card__description">Зарядное устройство. Беспроводные наушники.</p>
           </li>
 
           <li class="features__item">
-            <img src="images/color.jpg" alt="Политра цветов" class="card__picture">
+            <picture>
+              <source type="image/avif" srcset="images/color.avif 1x, images/color_2x.avif 2x">
+              <source type="image/webp" srcset="images/color.webp 1x, images/color_2x.webp 2x">
+              <img src="images/color.jpg" srcset="images/color_2x.jpg 2x" alt="Политра цветов" class="card__picture">
+            </picture>
             <h3 class="card__title">Цвет</h3>
             <p class="card__description">Глубоководный синий. Графитовый.</p>
           </li>
 
           <li class="features__item">
-            <img src="images/frame.jpg" alt="Корпус телефона" class="card__picture">
+            <picture>
+              <source type="image/avif" srcset="images/frame.avif 1x, images/frame_2x.avif 2x">
+              <source type="image/webp" srcset="images/frame.webp 1x, images/frame_2x.webp 2x">
+              <img src="images/frame.jpg" srcset="images/frame_2x.jpg 2x" alt="Корпус телефона" class="card__picture">
+            </picture>
             <h3 class="card__title">Корпус</h3>
             <p class="card__description">Водонипроницаемый и противоударный корпус.</p>
           </li>
 
           <li class="features__item">
-            <img src="images/line.jpg" alt="Линейка моделей" class="card__picture">
+            <picture>
+              <source type="image/avif" srcset="images/line.avif 1x, images/line_2x.avif 2x">
+              <source type="image/webp" srcset="images/line.webp 1x, images/line_2x.webp 2x">
+              <img src="images/line.jpg" srcset="images/line_2x.jpg 2x" alt="Линейка моделей" class="card__picture">
+            </picture>
             <h3 class="card__title">Линейка</h3>
             <p class="card__description">iPhone 13, iPhone 13 mini, iPhone 13 Pro и 13 Pro Max.</p>
           </li>
 
           <li class="features__item">
-            <img src="images/charger_magnetic.jpg" alt="Зарядное устройство" class="card__picture">
+            <picture>
+              <source type="image/avif" srcset="images/charger_magnetic.avif 1x, images/charger_magnetic_2x.avif 2x">
+              <source type="image/webp" srcset="images/charger_magnetic.webp 1x, images/charger_magnetic_2x.webp 2x">
+              <img src="images/charger_magnetic.jpg" srcset="images/charger_magnetic_2x.jpg 2x"
+                alt="Зарядное устройство" class="card__picture">
+            </picture>
             <h3 class="card__title">Зарядка</h3>
             <p class="card__description">Аккумулятор-магнит.</p>
           </li>
@@ -95,29 +129,30 @@
       <div class="container">
         <h2 class="order__title">Оформить предзаказ</h2>
 
-        <form action="#" class="order__form form">
+        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="order__form form"
+          id="form-order">
           <fieldset class="form__box">
             <legend class="form__box-title">Персональные данные</legend>
-            <label for="fullname" class="form__label">ФИО</label>
-            <input type="text" class="form__input" id="fullname" name="fullname">
+            <label for="fullname" class="form__label">ФИО<sup>*</sup></label>
+            <input type="text" class="form__input" id="fullname" name="fullname" required>
 
-            <label for="phone" class="form__label">Телефон</label>
-            <input type="text" class="form__input" id="phone" name="phone">
+            <label for="phone" class="form__label">Телефон<sup>*</sup></label>
+            <input type="text" class="form__input" id="phone" name="phone" required>
 
-            <label for="email" class="form__label">e-mail</label>
-            <input type="text" class="form__input" id="email" name="email">
+            <label for="email" class="form__label">e-mail<sup>*</sup></label>
+            <input type="text" class="form__input" id="email" name="email" required>
           </fieldset>
 
           <fieldset class="form__box">
             <legend class="form__box-title">Адрес доставки</legend>
-            <label for="city" class="form__label">Город</label>
-            <input type="text" class="form__input" id="city" name="city">
+            <label for="city" class="form__label">Город<sup>*</sup></label>
+            <input type="text" class="form__input" id="city" name="city" required>
 
-            <label for="postindex" class="form__label">Индекс</label>
-            <input type="text" class="form__input" id="postindex" name="postindex">
+            <label for="postindex" class="form__label">Индекс<sup>*</sup></label>
+            <input type="text" class="form__input" id="postindex" name="postindex" required>
 
-            <label for="address" class="form__label">Адрес</label>
-            <input type="text" class="form__input" id="address" name="address">
+            <label for="address" class="form__label">Адрес<sup>*</sup></label>
+            <input type="text" class="form__input" id="address" name="address" required>
           </fieldset>
 
           <fieldset class="form__box">
@@ -143,26 +178,28 @@
           </fieldset>
 
           <fieldset class="form__box">
-            <legend class="form__box-title">Аксессуарты</legend>
-            <label class="form__label label__checkbox">
-              <input type="checkbox" name="accessories" id="case">Чехол
+            <legend class="form__box-title">Аксессуары</legend>
+            <label class="form__label checkbox">
+              <input class="checkbox__input" type="checkbox" name="accessories" value="case">Чехол
             </label>
 
-            <label class="form__label label__checkbox">
-              <input type="checkbox" name="accessories" id="airpods">Наушники AirPods 3
+            <label class="form__label checkbox">
+              <input class="checkbox__input" type="checkbox" name="accessories" value="airpods">Наушники AirPods 3
             </label>
 
-            <label class="form__label label__checkbox">
-              <input type="checkbox" name="accessories" id="glass">Защитное стекло
+            <label class="form__label checkbox">
+              <input class="checkbox__input" type="checkbox" name="accessories" value="glass">Защитное стекло
             </label>
 
-            <label class="form__label label__checkbox">
-              <input type="checkbox" name="accessories" id="magsafe">Зарядное устройство MagSafe
+            <label class="form__label checkbox">
+              <input class="checkbox__input" type="checkbox" name="accessories" value="magsafe">Зарядное устройство
+              MagSafe
             </label>
           </fieldset>
-
-          <button type="submit" class="form__submit btn">Оформить</button>
         </form>
+
+        <button type="submit" class="form__submit btn" form="form-order">Оформить</button>
+
       </div>
 
     </section>
@@ -171,11 +208,9 @@
 
   <footer class="footer">
     <div class="container footer__container">
-      <p>
-        <small class="copyright">© iPhone 13 Promo, 2021</small>
-      </p>
+      <p>© iPhone 13 Promo, 2021</p>
 
-      <p class="footer__designer">Design by Anastasia Ilina
+      <p>Design by Anastasia Ilina
         <a href="#" class="footer__link">ilina9825@gmail.com</a>
       </p>
     </div>

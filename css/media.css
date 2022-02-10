@@ -42,13 +42,45 @@
     }
   }
 
-  .offer__subtitle {
+  .offer__subtitle,
+  .features__title {
     font-size: 26px;
   }
 
   .offer__title,
   .offer__price {
     font-size: 16px;
+  }
+
+  .form__box {
+    width: 100%;
+    padding: 40px 30px 80px;
+  }
+
+  .form__box-title {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .form__input {
+    height: 60px;
+  }
+
+  .choices {
+    height: 60px;
+  }
+
+  .choices[data-type*=select-one]:after {
+    height: 6px;
+    width: 6px;
+    border-width: 6px;
+    margin-top: -10px;
+    margin-right: 10px;
+  }
+
+  .choices__inner {
+    font-size: 16px;
+    padding: 10px;
   }
 }
 
@@ -61,6 +93,14 @@
   @media (min-resolution: 2dppx) {
     .offer__container {
       background-image: url('../images/phones_440_2x.jpg');
+    }
+
+    .card__title {
+      font-size: 16px;
+    }
+
+    .card__description {
+      font-size: 18px;
     }
   }
 }
